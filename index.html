@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citologia – O Estudo das Células</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cell-primary': '#15803d', // green-700
+                        'cell-secondary': '#22c55e', // green-500
+                        'cell-accent': '#86efac', // green-300
+                        'cell-light': '#f0fdf4', // green-50
+                        'cell-dark': '#052e16', // green-950
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i class="fa-solid fa-dna text-cell-secondary text-2xl"></i>
+                    <span class="font-bold text-xl tracking-tight text-slate-800">Citologia</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home"
+                            class="hover:text-cell-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Início</a>
+                        <a href="#intro"
+                            class="hover:text-cell-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">O
+                            que é</a>
+                        <a href="#types"
+                            class="hover:text-cell-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Tipos</a>
+                        <a href="#organelles"
+                            class="hover:text-cell-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Organelas</a>
+                        <a href="#division"
+                            class="hover:text-cell-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Divisão</a>
+                        <a href="#curiosities"
+                            class="hover:text-cell-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Curiosidades</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-800 hover:text-cell-primary focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white/95 backdrop-blur-md shadow-lg" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home"
+                    class="block hover:bg-cell-light hover:text-cell-primary px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="#intro"
+                    class="block hover:bg-cell-light hover:text-cell-primary px-3 py-2 rounded-md text-base font-medium">O
+                    que é</a>
+                <a href="#types"
+                    class="block hover:bg-cell-light hover:text-cell-primary px-3 py-2 rounded-md text-base font-medium">Tipos</a>
+                <a href="#organelles"
+                    class="block hover:bg-cell-light hover:text-cell-primary px-3 py-2 rounded-md text-base font-medium">Organelas</a>
+                <a href="#division"
+                    class="block hover:bg-cell-light hover:text-cell-primary px-3 py-2 rounded-md text-base font-medium">Divisão</a>
+                <a href="#curiosities"
+                    class="block hover:bg-cell-light hover:text-cell-primary px-3 py-2 rounded-md text-base font-medium">Curiosidades</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="images/hero_bg.png" alt="Background Células 3D" class="w-full h-full object-cover opacity-90">
+            <div class="absolute inset-0 bg-gradient-to-b from-white/20 to-white/80"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto" data-aos="fade-up">
+            <div
+                class="inline-block p-2 px-4 rounded-full bg-cell-primary/10 text-cell-primary font-semibold mb-4 backdrop-blur-sm border border-cell-primary/20">
+                Biologia Celular
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-slate-900 mb-6 tracking-tight">
+                Citologia: <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-cell-primary to-cell-secondary">A Base da
+                    Vida</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-800 mb-10 font-light drop-shadow-sm">
+                Explore o universo microscópico que compõe todos os seres vivos, desde as bactérias até o corpo humano.
+            </p>
+            <a href="#intro"
+                class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-cell-primary hover:bg-green-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                Iniciar Jornada
+                <i class="fa-solid fa-arrow-down ml-2 animate-bounce"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Section 1: What is Cytology -->
+    <section id="intro" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1" data-aos="fade-right">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl group border-4 border-cell-light">
+                        <img src="images/eukaryotic.png" alt="Célula Eucariótica"
+                            class="w-full h-auto transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <p class="font-bold text-lg">Célula Eucariótica</p>
+                            <p class="text-xs text-slate-300">Alta complexidade estrutural</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2" data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 border-l-4 border-cell-primary pl-4">
+                        O que é Citologia?
+                    </h2>
+                    <p class="text-lg text-slate-600 mb-4 leading-relaxed">
+                        A <strong>Citologia</strong> (ou Biologia Celular) é a ciência que investiga a estrutura, função
+                        e evolução das células. Ela não apenas descreve as partes da célula, mas explica como elas
+                        interagem para manter a vida.
+                    </p>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        Tudo começou em 1665, quando <strong>Robert Hooke</strong> observou cortiça no microscópio e
+                        cunhou o termo "célula". Mais tarde, a <strong>Teoria Celular</strong> estabeleceu que todos os
+                        seres vivos são formados por células.
+                    </p>
+
+                    <div class="bg-cell-light p-6 rounded-xl border border-cell-primary/20 mb-6">
+                        <h3 class="font-bold text-cell-primary mb-2 flex items-center">
+                            <i class="fa-solid fa-book-open mr-2"></i> Teoria Celular
+                        </h3>
+                        <ul class="list-disc list-inside text-slate-700 space-y-1">
+                            <li>Todos os seres vivos são compostos por células.</li>
+                            <li>A célula é a unidade morfofisiológica da vida.</li>
+                            <li>Toda célula origina-se de outra pré-existente.</li>
+                        </ul>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <i class="fa-solid fa-microscope text-cell-secondary text-2xl mb-2"></i>
+                            <h3 class="font-semibold text-slate-800">Microscopia</h3>
+                            <p class="text-sm text-slate-600">Ferramenta essencial para visualizar o invisível.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <i class="fa-solid fa-dna text-cell-secondary text-2xl mb-2"></i>
+                            <h3 class="font-semibold text-slate-800">Genética</h3>
+                            <p class="text-sm text-slate-600">O núcleo celular guarda nosso código genético.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Cell Types -->
+    <section id="types" class="py-20 bg-cell-light/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Tipos de Células</h2>
+                <div class="w-24 h-1 bg-cell-primary mx-auto rounded-full"></div>
+                <p class="mt-4 text-slate-600 max-w-3xl mx-auto">
+                    Apesar da enorme diversidade de vida, todas as células podem ser classificadas em dois grandes
+                    grupos baseados na organização do seu material genético.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- Prokaryotic Card -->
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 border border-slate-100"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-orange-50 overflow-hidden flex items-center justify-center p-4 relative">
+                        <div
+                            class="absolute top-4 right-4 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-orange-600">
+                            Simples</div>
+                        <img src="images/prokaryotic.png" alt="Célula Procariótica"
+                            class="h-full object-contain hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2">Procariótica</h3>
+                        <p class="text-slate-500 text-sm mb-4 italic">"Pro" = antes, "Karyon" = núcleo</p>
+
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">
+                            São as células mais primitivas e simples. Não possuem compartimentos internos membranosos.
+                            Seu DNA é circular e fica solto no citoplasma, numa região chamada nucleoide.
+                        </p>
+
+                        <ul class="space-y-3 mb-6 bg-orange-50/50 p-4 rounded-xl">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-orange-500 mt-1 mr-3"></i>
+                                <span class="text-slate-700 text-sm"><strong>Sem Carioteca:</strong> O DNA não está
+                                    protegido.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-orange-500 mt-1 mr-3"></i>
+                                <span class="text-slate-700 text-sm"><strong>Plasmídeos:</strong> Pequenos anéis de DNA
+                                    extra.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-orange-500 mt-1 mr-3"></i>
+                                <span class="text-slate-700 text-sm"><strong>Parede Celular:</strong> Rígida, protege a
+                                    célula.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Eukaryotic Card -->
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 border border-slate-100"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-cell-light overflow-hidden flex items-center justify-center p-4 relative">
+                        <div
+                            class="absolute top-4 right-4 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-cell-primary">
+                            Evoluída</div>
+                        <img src="images/eukaryotic.png" alt="Célula Eucariótica"
+                            class="h-full object-contain hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2">Eucariótica</h3>
+                        <p class="text-slate-500 text-sm mb-4 italic">"Eu" = verdadeiro, "Karyon" = núcleo</p>
+
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">
+                            Células complexas e compartimentalizadas. Possuem um sistema de endomembranas que cria
+                            ambientes separados para diferentes funções químicas.
+                        </p>
+
+                        <ul class="space-y-3 mb-6 bg-green-50/50 p-4 rounded-xl">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-cell-secondary mt-1 mr-3"></i>
+                                <span class="text-slate-700 text-sm"><strong>Núcleo Verdadeiro:</strong> DNA protegido
+                                    por membrana.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-cell-secondary mt-1 mr-3"></i>
+                                <span class="text-slate-700 text-sm"><strong>Citoesqueleto:</strong> Rede de proteínas
+                                    para sustentação.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-cell-secondary mt-1 mr-3"></i>
+                                <span class="text-slate-700 text-sm"><strong>Organelas:</strong> Mitocôndrias, Golgi,
+                                    etc.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-aos="fade-up">
+                <div class="bg-cell-dark px-6 py-4 flex justify-between items-center">
+                    <h3 class="text-white font-bold text-lg">Quadro Comparativo</h3>
+                    <i class="fa-solid fa-table text-cell-secondary"></i>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50 border-b border-slate-200">
+                                <th class="p-4 font-semibold text-slate-700 w-1/3">Estrutura / Função</th>
+                                <th class="p-4 font-semibold text-orange-600 w-1/3">Procariótica</th>
+                                <th class="p-4 font-semibold text-cell-primary w-1/3">Eucariótica</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-sm md:text-base">
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="p-4 text-slate-600 font-medium">Envoltório Nuclear</td>
+                                <td class="p-4 text-slate-800">Ausente</td>
+                                <td class="p-4 text-slate-800">Presente (Carioteca)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="p-4 text-slate-600 font-medium">DNA</td>
+                                <td class="p-4 text-slate-800">Circular, único, disperso</td>
+                                <td class="p-4 text-slate-800">Linear, múltiplo, cromossomos</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="p-4 text-slate-600 font-medium">Organelas Membranosas</td>
+                                <td class="p-4 text-slate-800">Ausentes</td>
+                                <td class="p-4 text-slate-800">Muitas (Mitocôndria, Lisossomo...)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="p-4 text-slate-600 font-medium">Divisão Celular</td>
+                                <td class="p-4 text-slate-800">Fissão Binária (Simples)</td>
+                                <td class="p-4 text-slate-800">Mitose e Meiose (Complexa)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Organelles -->
+    <section id="organelles" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Organelas Celulares</h2>
+                <div class="w-24 h-1 bg-cell-secondary mx-auto rounded-full"></div>
+                <p class="mt-4 text-slate-600">
+                    Assim como temos órgãos (coração, pulmão), a célula tem <strong>organelas</strong>. Cada uma
+                    desempenha um papel vital para a sobrevivência celular.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Organelle Cards -->
+                <div class="group bg-slate-50 rounded-2xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-cell-primary/30"
+                    data-aos="fade-up" data-aos-delay="0">
+                    <div
+                        class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform border border-slate-100">
+                        <img src="images/nucleus.png" alt="Núcleo" class="w-12 h-12 object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Núcleo</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Centro de controle. Armazena o genoma (DNA) e coordena a divisão celular e a síntese de
+                        proteínas através do RNA.
+                    </p>
+                </div>
+
+                <div class="group bg-slate-50 rounded-2xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-cell-primary/30"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform border border-slate-100">
+                        <img src="images/mitochondria.png" alt="Mitocôndria" class="w-12 h-12 object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Mitocôndria</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Usina energética. Realiza a <strong>respiração celular</strong>, quebrando glicose para gerar
+                        ATP, a moeda de energia da célula.
+                    </p>
+                </div>
+
+                <div class="group bg-slate-50 rounded-2xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-cell-primary/30"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform border border-slate-100">
+                        <img src="images/ribosome.png" alt="Ribossomos" class="w-12 h-12 object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Ribossomos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Construtores. Pequenos grânulos (não membranosos) que leem o RNA mensageiro e montam as
+                        proteínas aminoácido por aminoácido.
+                    </p>
+                </div>
+
+                <div class="group bg-slate-50 rounded-2xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-cell-primary/30"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform border border-slate-100">
+                        <img src="images/golgi.png" alt="Complexo Golgiense" class="w-12 h-12 object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Complexo Golgiense</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Centro de distribuição. Recebe proteínas do retículo, modifica-as (adicionando açúcares, etc.) e
+                        as empacota em vesículas para exportação.
+                    </p>
+                </div>
+
+                <div class="group bg-slate-50 rounded-2xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-cell-primary/30"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <div
+                        class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform border border-slate-100">
+                        <i class="fa-solid fa-recycle text-3xl text-orange-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Lisossomos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Sistema digestivo. Vesículas cheias de enzimas ácidas que digerem nutrientes e reciclam
+                        organelas velhas (autofagia).
+                    </p>
+                </div>
+
+                <div class="group bg-slate-50 rounded-2xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-cell-primary/30"
+                    data-aos="fade-up" data-aos-delay="500">
+                    <div
+                        class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform border border-slate-100">
+                        <i class="fa-solid fa-road text-3xl text-purple-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Retículo Endoplasmático</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        <strong>Rugoso:</strong> Tem ribossomos, faz proteínas.<br>
+                        <strong>Liso:</strong> Sem ribossomos, sintetiza lipídios e desintoxica a célula.
+                    </p>
+                </div>
+
+                <div class="group bg-green-50 rounded-2xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 border border-green-100 hover:border-green-300"
+                    data-aos="fade-up" data-aos-delay="600">
+                    <div
+                        class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform border border-slate-100">
+                        <i class="fa-solid fa-sun text-3xl text-green-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Cloroplastos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Exclusivo de plantas e algas. Contém clorofila e usa a luz solar para converter CO2 e água em
+                        glicose (Fotossíntese).
+                    </p>
+                </div>
+
+                <div class="group bg-slate-50 rounded-2xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-cell-primary/30"
+                    data-aos="fade-up" data-aos-delay="700">
+                    <div
+                        class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform border border-slate-100">
+                        <i class="fa-solid fa-layer-group text-3xl text-blue-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Membrana Plasmática</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        A fronteira. Uma bicamada lipídica que controla o que entra e sai da célula (permeabilidade
+                        seletiva).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Cell Division -->
+    <section id="division" class="py-20 bg-cell-dark text-white relative overflow-hidden">
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 left-0 w-64 h-64 bg-cell-primary/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-cell-secondary/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Divisão Celular</h2>
+                <div class="w-24 h-1 bg-cell-secondary mx-auto rounded-full"></div>
+                <p class="mt-4 text-slate-300 max-w-2xl mx-auto">
+                    A continuidade da vida depende da capacidade das células de se duplicarem. Existem dois mecanismos
+                    principais para isso.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Mitosis -->
+                <div class="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700 hover:border-cell-secondary/50 transition-colors"
+                    data-aos="fade-right">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 bg-cell-secondary/20 rounded-lg flex items-center justify-center text-cell-secondary font-bold text-xl">
+                            2n</div>
+                        <h3 class="text-2xl font-bold text-cell-secondary">Mitose</h3>
+                    </div>
+                    <p class="text-slate-300 mb-6 leading-relaxed">
+                        É a divisão "equacional". Ocorre em células somáticas (do corpo). O objetivo é criar cópias
+                        exatas para crescimento, cicatrização e renovação de tecidos.
+                    </p>
+                    <ul class="space-y-3 mb-6 text-sm text-slate-400">
+                        <li class="flex items-center"><i
+                                class="fa-solid fa-circle-check mr-3 text-cell-secondary"></i>Gera 2 células idênticas à
+                            mãe.</li>
+                        <li class="flex items-center"><i
+                                class="fa-solid fa-circle-check mr-3 text-cell-secondary"></i>Mantém o número de
+                            cromossomos (Diploide).</li>
+                        <li class="flex items-center"><i
+                                class="fa-solid fa-circle-check mr-3 text-cell-secondary"></i>Ocorre a vida toda.</li>
+                    </ul>
+                    <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-700">
+                        <p class="text-xs font-mono text-slate-500 mb-3 uppercase tracking-widest">Etapas da Mitose:</p>
+                        <div class="grid grid-cols-4 gap-2 text-center text-xs text-slate-300">
+                            <div class="bg-slate-800 p-2 rounded">Prófase</div>
+                            <div class="bg-slate-800 p-2 rounded">Metáfase</div>
+                            <div class="bg-slate-800 p-2 rounded">Anáfase</div>
+                            <div class="bg-slate-800 p-2 rounded">Telófase</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meiosis -->
+                <div class="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700 hover:border-cell-primary/50 transition-colors"
+                    data-aos="fade-left">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 bg-cell-primary/20 rounded-lg flex items-center justify-center text-cell-primary font-bold text-xl">
+                            n</div>
+                        <h3 class="text-2xl font-bold text-cell-primary">Meiose</h3>
+                    </div>
+                    <p class="text-slate-300 mb-6 leading-relaxed">
+                        É a divisão "reducional". Ocorre apenas nas células germinativas para formar gametas
+                        (espermatozoides e óvulos). Reduz o DNA pela metade.
+                    </p>
+                    <ul class="space-y-3 mb-6 text-sm text-slate-400">
+                        <li class="flex items-center"><i
+                                class="fa-solid fa-circle-check mr-3 text-cell-primary"></i>Gera 4 células geneticamente
+                            diferentes.</li>
+                        <li class="flex items-center"><i
+                                class="fa-solid fa-circle-check mr-3 text-cell-primary"></i>Metade dos cromossomos
+                            (Haploide).</li>
+                        <li class="flex items-center"><i
+                                class="fa-solid fa-circle-check mr-3 text-cell-primary"></i>Garante variabilidade
+                            genética.</li>
+                    </ul>
+                    <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-700">
+                        <p class="text-xs font-mono text-slate-500 mb-3 uppercase tracking-widest">Importância:</p>
+                        <p class="text-sm text-slate-300 italic">
+                            "Sem a meiose, o número de cromossomos dobraria a cada geração."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Curiosities -->
+    <section id="curiosities" class="py-20 bg-cell-light/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Você Sabia?</h2>
+                <div class="w-24 h-1 bg-purple-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-purple-500 hover:-translate-y-2 transition-transform duration-300"
+                    data-aos="zoom-in" data-aos-delay="0">
+                    <div class="text-4xl font-bold text-purple-500 mb-2">37 Trilhões</div>
+                    <p class="text-slate-600 leading-relaxed">
+                        É o número estimado de células no corpo humano adulto. A cada segundo, milhões delas morrem e
+                        são substituídas.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-pink-500 hover:-translate-y-2 transition-transform duration-300"
+                    data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-4xl font-bold text-pink-500 mb-2">Células-Tronco</div>
+                    <p class="text-slate-600 leading-relaxed">
+                        São células "curinga" capazes de se transformar em qualquer tipo de tecido do corpo. São a
+                        esperança da medicina regenerativa.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-yellow-500 hover:-translate-y-2 transition-transform duration-300"
+                    data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-4xl font-bold text-yellow-500 mb-2">Autofagia</div>
+                    <p class="text-slate-600 leading-relaxed">
+                        Em 2016, o Nobel de Medicina foi para a descoberta de como as células "comem" a si mesmas para
+                        reciclar componentes e sobreviver à fome.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cell-dark text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <div class="flex items-center gap-2 mb-2">
+                    <i class="fa-solid fa-dna text-cell-secondary text-xl"></i>
+                    <span class="text-2xl font-bold text-white tracking-tight">Citologia</span>
+                </div>
+                <p class="text-sm text-slate-500">Trabalho Escolar de Biologia</p>
+            </div>
+            <div class="text-center md:text-right">
+                <p>&copy; 2025 Apresentação de Biologia.</p>
+                <p class="text-sm mt-1">Desenvolvido com <i class="fa-solid fa-heart text-cell-secondary mx-1"></i> e
+                    Ciência.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
