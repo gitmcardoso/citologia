@@ -2,7 +2,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -20,18 +20,24 @@ html {
     background: #94a3b8;
 }
 
-/* Floating Animation */
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .animate-float {
     animation: float 6s ease-in-out infinite;
 }
 
-/* Glassmorphism Utilities */
 .glass {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
@@ -39,7 +45,6 @@ html {
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-/* AOS Customization (if needed) */
 [data-aos] {
     opacity: 0;
     transition-property: transform, opacity;
@@ -54,3 +59,10 @@ html {
         transition-delay: 0s !important;
     }
 }
+
+/* M       M */
+/* MM     MM */
+/* M M   M M */
+/* M  M M  M */
+/* M   M   M */
+/* M       M */

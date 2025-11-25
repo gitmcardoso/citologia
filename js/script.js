@@ -1,4 +1,4 @@
-// Mobile Menu Toggle
+// Mobile Menu 
 const btn = document.getElementById('mobile-menu-btn');
 const menu = document.getElementById('mobile-menu');
 
@@ -6,14 +6,14 @@ btn.addEventListener('click', () => {
     menu.classList.toggle('hidden');
 });
 
-// Close mobile menu when clicking a link
+// Close mobile menu 
 menu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
         menu.classList.add('hidden');
     });
 });
 
-// Navbar Scroll Effect
+// Navbar efeito
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -23,7 +23,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Simple Intersection Observer for Scroll Animations (AOS replacement)
+// animação scrollagem
 const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -34,17 +34,14 @@ const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('aos-animate');
-            // Optional: Stop observing once animated
-            // observer.unobserve(entry.target);
+            // Opicional para parar a animação
         }
     });
 }, observerOptions);
 
 document.querySelectorAll('[data-aos]').forEach(el => {
-    // Add base transition styles via JS to ensure they apply
     el.style.transition = 'all 0.8s ease-out';
 
-    // Handle specific animations based on data-aos value
     const animType = el.getAttribute('data-aos');
     if (animType === 'fade-up') {
         el.style.transform = 'translateY(30px)';
@@ -59,7 +56,6 @@ document.querySelectorAll('[data-aos]').forEach(el => {
     observer.observe(el);
 });
 
-// Add class for the "in-view" state to reset transforms
 const styleSheet = document.createElement("style");
 styleSheet.innerText = `
     .aos-animate {
@@ -68,3 +64,10 @@ styleSheet.innerText = `
     }
 `;
 document.head.appendChild(styleSheet);
+
+// M       M
+// MM     MM
+// M M   M M
+// M  M M  M
+// M   M   M
+// M       M
